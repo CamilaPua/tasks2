@@ -1,0 +1,33 @@
+{% macro render_field(field) %}
+    <td>{{ field.label }}
+    <dd>{{ field(**kwargs)|safe }}
+{% endmacro %}
+
+{% macro render_field_without_label(field) %}
+    {{ field(**kwargs)|safe }}
+{% endmacro %}
+
+{% macro render_tasks(tasks) %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Tarea</th>
+            <th>Estado</th>
+        </tr>
+        {% for tarea in lista_dics_tareas %}
+            <tr>
+                <form method="POST", name="estado_form">
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>
+                        {% if task.status %}
+                            ✅ Hecho
+                        {% else %}
+                            〰 Por hacer
+                        {% endif %}
+                    </td>
+                </form>
+            </tr>
+        {% endfor %}
+    </table>
+{% endmacro %}
