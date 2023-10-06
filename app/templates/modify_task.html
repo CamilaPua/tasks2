@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+
+{% block title %}
+    Modificar tarea
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+<h1>Modificar tarea</h1>
+<form method="POST">
+    {{ macros.render_field(tasks_form.id) }}
+    {{ macros.render_field_without_label(tasks_form.done) }}
+    {{ macros.render_field_without_label(tasks_form.not_done) }}
+    {{ macros.render_field_without_label(tasks_form.delete) }}
+</form>
+.
+<hr>
+    <h2>Mis tareas</h2>
+    {{ macros.render_tasks(tasks) }}
+
+    <h3>
+        <a href="{{ url_for('index_bp.index') }}">Inicio</a>
+    </h3>
+{% endblock %}
