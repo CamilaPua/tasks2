@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+
+{% block title %}
+    Mis tareas
+    {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Mis tareas</h1>
+    {{ macros.render_tasks(tasks) }}
+    <h3>
+        <a href="{{ url_for('add_task_bp.add_task') }}">Agregar Tarea</a>
+    </h3>
+{% endblock %}

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from app.models import Task
+from app.models.tasks_model import Task
 
 # blueprint configuration
 index_bp = Blueprint(

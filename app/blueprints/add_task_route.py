@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-from app.models import Task
+from app.models.tasks_model import Task
 from app import forms
 
 # blueprint configuration
