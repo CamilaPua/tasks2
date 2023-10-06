@@ -7,6 +7,7 @@ load_dotenv(path.join(basedir, ".env"))
 # general config
 FLASK_APP = 'app'
 FLASK_DEBUG = True
+SECRET_KEY = environ.get('SECRET_KEY')
 
 # database
 SQLALCHEMY_DATABASE_URI = 'sqlite:///tasks.db'
