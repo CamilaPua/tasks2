@@ -22,13 +22,23 @@ class Task(db.Model):
         db.session.commit()
 
     def del_task(id_task):
-        task = Task.query.get(id_task)
-        db.session.delete(task)
-        db.session.commit()
+        if Task.exists(id_task):
+            task = Task.query.get(id_task)
+            db.session.delete(task)
+            db.session.commit()
 
     def update_task(id_task):
-        task = Task.query.get(id_task)
-        task.status = not(task.status)
+        if Task.exists(id_task):
+            task = Task.query.get(id_task)
+            task.status = not(task.status)
+            db.session.commit()
 
     def get_tasks():
         return Task.query.all()
+
+    def exists(id_task):
+        tasks = Task.get_tasks()
+        for task in tasks:
+            if task.id == id_task:
+                return True
+        return False

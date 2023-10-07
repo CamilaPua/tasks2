@@ -12,10 +12,9 @@ def modify_task():
     tasks = Task.get_tasks()
     tasks_form = forms.Task(request.form)
     if request.method == 'POST':
-        Task.add_task(tasks_form.description.data)
         if tasks_form.id:
-            if tasks_form.delete:
-                Task.del_task(tasks_form.id)
+            if tasks_form.delete.data:
+                Task.del_task(tasks_form.id.data)
             else:
-                Task.update_task(tasks_form.id)
+                Task.update_task(tasks_form.id.data)
     return render_template('modify_task.html', tasks_form=tasks_form, tasks=tasks)
