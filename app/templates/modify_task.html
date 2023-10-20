@@ -18,8 +18,9 @@
 <hr>
     <h2>Mis tareas</h2>
     {{ macros.render_tasks(tasks) }}
+{% endblock %}
 
-    <h3>
-        <a href="{{ url_for('index_bp.index') }}">Inicio</a>
-    </h3>
+{% block footer%}
+    {% set links = {'Inicio': 'index_bp.index', 'Agregar Tarea': 'add_task_bp.add_task'} %}
+    {{ macros.render_footer(links) }}
 {% endblock %}

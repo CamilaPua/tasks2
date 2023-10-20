@@ -29,11 +29,25 @@
             color: #fff; /* Texto blanco */
             font-weight: bold; /* Texto en negrita */
         }
-    </style>
-    
-    
+        /* Estilo para el footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Estilo para los enlaces en el footer */
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px;
+        }
+</style>    
 </head>
 <body>
     {% block content %}{% endblock %}
+    <br>
+    {% block footer %}{% endblock %}
 </body>
 </html>

@@ -12,7 +12,9 @@
         {{ macros.render_field(tasks_form.description) }}
         {{ macros.render_field_without_label(tasks_form.submit) }}
     </form>
-    <h3>
-        <a href="{{ url_for('index_bp.index') }}">Inicio</a>
-    </h3>
+{% endblock %}
+
+{% block footer%}
+    {% set links = {'Inicio': 'index_bp.index'} %}
+    {{ macros.render_footer(links) }}
 {% endblock %}

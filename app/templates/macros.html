@@ -31,3 +31,11 @@
         {% endfor %}
     </table>
 {% endmacro %}
+
+{% macro render_footer(links) %}
+    <footer>
+        {% for label, route in links.items() %}
+            <a href="{{ url_for(route) }}">{{ label }}</a>
+        {% endfor %}
+    </footer>
+{% endmacro %}
